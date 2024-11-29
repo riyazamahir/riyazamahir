@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Riyaza Mahir - Portfolio</title>
+    <meta name="description" content="Riyaza Mahir's portfolio showcasing web development projects and skills.">
+    <meta name="keywords" content="web development, front-end developer, HTML, CSS, JavaScript, web designer">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* General reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            background-color: #f9fafc;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f4a261;
+            transform: scale(1.1);
+        }
+
+        /* Section styles */
+        .section {
+            padding: 80px 0;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #333;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #f4a261;
+            margin: 10px auto 0;
+        }
+
+        /* About section */
+        #about p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        /* Skills section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill {
+            padding: 20px;
+            background-color: #f9fafc;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill h3 {
+            font-size: 1.5rem;
+            color: #2a9d8f;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Learning Section */
+        #learning {
+            background-color: #e9f7f6;
+        }
+
+        .learning-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .learning-card h3 {
+            font-size: 1.4rem;
+            color: #2a9d8f;
+        }
+
+        /* Projects Section */
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .project-card {
+            background: linear-gradient(to top, #ffffff, #f9fafc);
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .view-btn {
+            background-color: #4a261;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: #e76f51;
+            transform: scale(1.05);
+        }
+
+        /* Testimonials Section */
+        .testimonial-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .testimonial-card {
+            flex: 1;
+            max-width: 400px;
+            background: #f9fafc;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card h4 {
+            font-size: 1.2rem;
+            color: #2a9d8f;
+            font-weight: 700;
+        }
+
+        /* Blog List */
+        .blog-list {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .blog-list li {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .blog-list li a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .blog-list li a:hover {
+            color: #4a261;
+        }
+
+        /* Contact Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 40px auto 0;
+            background: #f9fafc;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        form input,
+        form textarea {
+            padding: 15px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        form textarea {
+            min-height: 150px;
+        }
+
+        form button {
+            background-color: #2a9d8f;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        form button:hover {
+            background-color: #264653;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Riyaza Mahir - Web Developer</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#learning">Learning</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm Riyaza Mahir, a passionate web developer with a focus on building interactive and responsive websites. I specialize in front-end technologies like HTML, CSS, JavaScript, and React. I enjoy problem-solving and am constantly learning new technologies to enhance my skills.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <p>Expert in structuring web pages with semantic HTML5 elements.</p>
+                </div>
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <p>Proficient in styling web pages with modern CSS techniques like Flexbox and Grid.</p>
+                </div>
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <p>Experienced in JavaScript for creating dynamic and interactive web elements.</p>
+                </div>
+                <div class="skill">
+                    <h3>React</h3>
+                    <p>Building responsive and reusable components with React.js.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section id="learning" class="section">
+        <div class="container">
+            <h2>Learning</h2>
+            <div class="learning-card">
+                <h3>React - Custom Hook</h3>
+                <p>Learning how to build custom hooks in React to reuse stateful logic across components.</p>
+                <pre><code class="language-javascript">
+// Custom Hook Example in React
+import { useState, useEffect } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.error(error);
+      return initialValue;
+    }
+  });
+
+  const setValue = (value) => {
+    try {
+      setStoredValue(value);
+      window.localStorage.setItem(key, JSON.stringify(value));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return [storedValue, setValue];
+}
+                </code></pre>
+            </div>
+            <div class="learning-card">
+                <h3>CSS Grid Layout</h3>
+                <p>Exploring the power of CSS Grid for creating responsive, complex layouts.</p>
+                <pre><code class="language-css">
+/* Simple CSS Grid Layout */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  background-color: lightgray;
+  padding: 20px;
+  text-align: center;
+}
+                </code></pre>
+            </div>
+            <div class="learning-card">
+                <h3>JavaScript - Async/Await</h3>
+                <p>Getting comfortable with async/await for handling asynchronous code more cleanly in JavaScript.</p>
+                <pre><code class="language-javascript">
+// Async/Await Example in JavaScript
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+fetchData('https://api.example.com/data');
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <h3>Project 1</h3>
+                    <p>A web app for tracking personal tasks with a React front-end and Node.js back-end.</p>
+                    <button class="view-btn">View Project</button>
+                </div>
+                <div class="project-card">
+                    <h3>Project 2</h3>
+                    <p>Portfolio website to showcase web development skills and projects.</p>
+                    <button class="view-btn">View Project</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card">
+                    <p>"Riyaza's work is exceptional! His understanding of front-end technologies and UI design is impressive."</p>
+                    <h4>John Doe, CEO of TechCorp</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Great communication and attention to detail. Would love to collaborate with Riyaza again in the future!"</p>
+                    <h4>MR.Nuwan Jayasekara, Senior Developer at WebSolutions</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Blog</h2>
+            <ul class="blog-list">
+                <li><a href="#">How to Get Started with React</a></li>
+                <li><a href="#">10 Best Practices for CSS Layouts</a></li>
+                <li><a href="#">Understanding JavaScript Closures</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <form action="submit_form.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
